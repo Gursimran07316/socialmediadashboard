@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+:root{
+    --Green: hsl(163, 72%, 41%);
+    --Red: hsl(356, 69%, 56%);
+    --Facebook: hsl(195, 100%, 50%);
+    --Twitter: hsl(203, 89%, 53%);
+    --Instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+    --YouTube: hsl(348, 97%, 39%);
+    --darktoggle: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+    --lighttoggle: hsl(230, 22%, 74%);
+    --darkBG: hsl(230, 17%, 14%);
+    --darkb: hsl(232, 19%, 15%);
+    --darkCard: hsl(228, 28%, 20%);
+    --darktext : hsl(228, 34%, 66%);
+    --White: hsl(0, 0%, 100%);;
+    --whiteb: hsl(225, 100%, 98%);
+    --whitecard: hsl(227, 47%, 96%);
+    --grayText: hsl(228, 12%, 44%);
+    --darkblueText: hsl(230, 17%, 14%);
+}
+*{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+}
+body{
+    font-family: 'Inter', sans-serif;
+}
+.wrapper{
+width:100%;
+background: var(--darkBG);
+color:var(--White);
+min-height: 100vh;
+}
+.container{
+    width:85%;
+    margin:0 auto;
+    overflow: hidden;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    padding-top:2rem;
+    font-weight: 700;
+}
+header p{
+    color:var(--darktext);
+    margin:0.3rem 0;
+}
+header hr{
+    height: 1px;
+    background:var(--darktext);
+    margin:1rem 0;
+}
+/* switch */
+.themeswitch div.flex{
+   display: flex;
+   justify-content:space-between;
+}
+.switchHolder{
+    width:55px;
+    height: 28px;
+    border-radius: 15px;
+    background: linear-gradient( hsl(210, 78%, 56%) , hsl(146, 68%, 55%));
+    transition:all ease-in 0.5s;
+    opacity:1;
+}
+.switchHolder .switch{
+    background: var(--darkBG);
+    width: 24px;
+    height: 24px;
+    margin-left:3px;
+    margin-top:2px;
+    border-radius:50%;
+    cursor: pointer;
+    transition:all ease-in 0.5s;
+}
+.switchHolder:hover,.grid-1 div.box:hover,.grid-2 .box-sm:hover{
+    opacity:0.5;
+}
+/* on click WHITE theme */
+.switchHolder.active{
+    background: var(--lighttoggle);
+}
+.switchHolder.active .switch{
+    margin-left:28px;
+    background: var(--White);
+}
+.wrapper.active{
+    background:var(--white);
+    color:black;
+}
+.grid-1.active div.box,.grid-2.active .box-sm{
+    background: var(--whitecard);
+}
+header.active p,.grid-1 div.box p,.grid-2 .box-sm .div-1 p{
+    color:var(--grayText);
+}
+/* grid-1*/
+.grid-1,.grid-2{
+    margin-top:1rem;
+    display:grid;
+    grid-template-columns: auto;
+    grid-gap: 1rem;
+    margin-bottom:2rem;
+}
+.grid-1 div.box{
+    background:var(--darkCard);
+    padding:1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.grid-1 div.box-1{
+border-top:3px var(--Facebook) solid;
+}
+.grid-1 div.box-2{
+    border-top:3px var(--Twitter) solid;
+}
+.grid-1 div.box-3{
+    border-top:3px hsl(329, 70%, 58%) solid;
+
+}
+.grid-1 div.box-4{
+    border-top:3px var(--YouTube) solid;
+}
+.grid-1 div img,.grid-1 div p{
+    display: inline;
+}
+.grid-1 div.box p{
+    color:var(--darktext);
+    padding-left:0.5rem;
+}
+.grid-1 div.box .logo-tag,.grid-1 div.box .scores,.grid-1 div.box .trend{
+    margin-bottom:1.5rem;
+}
+.grid-1 div.box .scores h1{
+font-size: 3rem;
+font-weight: 800;
+text-align: center;
+}
+.grid-1 div.box .scores p{
+    padding:0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.grid-1 div.box .trend p,.grid-2 .box-sm .percents p{
+    color:var(--Green);
+}
+.grid-1 div.box .trend.red p,.grid-2 .box-sm .percents.red p{
+    color:var(--Red);
+}
+/* grid-2 */
+.grid-2 .box-sm{
+    background:var(--darkCard);
+    padding:1rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.grid-2 .box-sm .div-1 p{
+    padding-bottom: 1rem;
+    color:var(--darktext);
+}
+.grid-2 .box-sm .div-1 h3{
+    font-size:1.8rem;
+    font-weight:800;
+}
+.grid-2 .box-sm .div-2 {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;   
+}
+.grid-2 .box-sm .div-2 div .img{
+    float:right;
+}
+.grid-2 .box-sm .div-2 p,.grid-2 .box-sm .div-2 img{
+display: inline;
+}
+/* laptop */
+@media(min-width:1000px){
+    .container{
+        width:85%;
+    }
+    header hr{
+        display:none;
+    }
+    .themeswitch div.flex{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .themeswitch div p{
+        padding-right:1rem;
+    }
+    .grid-1,.grid-2{
+        grid-template-columns: repeat(4,auto);
+        grid-gap: 1rem 2rem;
+    }
+}
